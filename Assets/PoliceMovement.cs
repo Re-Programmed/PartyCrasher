@@ -26,7 +26,8 @@ public class PoliceMovement : MonoBehaviour
             playerVelocity.y = 0;
         }
 
-        Vector3 move = new Vector3(Input.GetKey("Keydown"), 0, Input.GetAxis("Vertical"));
+        bool keydown = Input.GetKey("Keydown");
+        Vector3 move = new Vector3(keydown ? 1 : 0, 0, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move!= Vector3.zero)
